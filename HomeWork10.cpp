@@ -143,10 +143,15 @@ int main()
 			  char car_brand[10];
 			  char car_model[10];
 			  int year = 0;
-			  int num_avto = 0;
+			  char num_avto [10];
+
+			  void garage_info()
+			  {
+				  cout << car_brand << " " << car_model << " " << year << " " << "года выпуска, " << "гос. номер " << num_avto;
+			  }
 		  };
 		  garage  myGarage;
-		  cout << "Укажите марку авто"<< endl;
+		  cout << "Укажите марку авто" << endl;
 		  cin >> myGarage.car_brand;
 		  cout << "Укажите модель" << endl;
 		  cin >> myGarage.car_model;
@@ -154,14 +159,10 @@ int main()
 		  cin >> myGarage.year;
 		  cout << "Укажите гос номер" << endl;
 		  cin >> myGarage.num_avto;
-
-		  cout << myGarage.car_brand << " ";
-		  cout << myGarage.car_model << " ";
-		  cout << myGarage.year << " "<<"года выпуска, ";
-		  cout <<"гос. номер " << myGarage.num_avto;
+		  myGarage.garage_info();
 		  
 		  break;
-
+	  }
 	  case 5:
 	  {/*
 	   Создайте структуру для хранения данных об клиенте банка (Имя, Фамилия, дата рождения (число, месяц, год), номер счета, паспортные данные (серия, номер, кем выдан, дата выдачи (число, месяц, год) ). Программа должна запрашивать ввод данных с клавиатуры, вывести на экран информацию в формате: 
@@ -175,7 +176,7 @@ int main()
 	  }
 
 
-	  }
+	  
 
 
 	   default:
