@@ -93,27 +93,24 @@ int main()
 			  exit ;
 		  }
 		  	  
-		  int** arr = new int* [row];
+		  int** arr = new int* [row];             // Выделяем динамическую память для строк
 		  for (int i = 0; i < row; i++)
 		  {
-			  arr[i] = new int[column];
+			  arr[i] = new int[column];           //  В цикле выделяем память для столбцов
 		  }
-		  for (int i = 0; i < row; i++)
+		  for (int i = 0; i < row; i++)           // Заполняем массив числами
 
 			  for (int j = 0; j < column; j++)
 			  {
 				  cout << "Введите числа: ";
-				  cin >> arr[i][j];
+				  cin >> arr[i][j];                 
 			  }
 		  for (int i = 0; i < row; i++)
-			  
 		  {
 			  cout << endl;
-			  for (int j = 0; j < column; j++)
+			  for (int j = 0; j < column; j++)     // Просто для наглядности выводим аккуратно массив по строчно и по столбцам 
 			  {
-				  //cout << endl;
-				  //cout << setw(10);
-				  cout.width(2);
+				  cout.width(2);                   // Все ровняем
 				  cout << arr[i][j]<<" ";
 			  }
 		  }
@@ -121,18 +118,53 @@ int main()
 		    cout << endl << endl;
 		    for (int i = 0; i < row; i++)
 	  	    {
-			 sum += (arr[i][i]);
+			 sum += (arr[i][i]);                   // Считаем сумму главной диагонали
 			}
 		  cout<< "Сумма главной диагонали = " << sum;
 
 		  for(int i = 0; i < row; i++)
-		  delete[]arr[i];
+		  delete[]arr[i];                          // удаляем выделенную память
 		  delete[]arr;
 		  cout << endl;
 		  
+		  break;
+	  }
+
+
+	  case 4:
+	  {
+		  cout << "Задание № 4" << endl;
+		  cout << "Создайте структуру для хранения данных об автомобиле(марка, модель, гос.номер, год выпуска).";
+		  cout << "Программа должна запрашивать ввод данных с клавиатуры, вывести на экран информацию в формате :";
+		  cout << "<марка> <модель> <год выпуска> года выпуска, гос.номер <гос.номер>";
+		  cout << endl;
+		  struct garage
+		  {
+			  char car_brand[10];
+			  char car_model[10];
+			  int year = 0;
+			  int num_avto = 0;
+		  };
+		  garage  myGarage;
+		  cout << "Укажите марку авто"<< endl;
+		  cin >> myGarage.car_brand;
+		  cout << "Укажите модель" << endl;
+		  cin >> myGarage.car_model;
+		  cout << "Укажите год выпуска" << endl;
+		  cin >> myGarage.year;
+		  cout << "Укажите гос номер" << endl;
+		  cin >> myGarage.num_avto;
+
+		  cout << myGarage.car_brand << " ";
+		  cout << myGarage.car_model << " ";
+		  cout << myGarage.year << " "<<"года выпуска, ";
+		  cout <<"гос. номер " << myGarage.num_avto;
 
 
 
+
+
+		  
 
 		  break;
 	  }
