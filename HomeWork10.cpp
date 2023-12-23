@@ -1,5 +1,5 @@
 ﻿#include <iostream>
-
+#include <Windows.h>
 using namespace std;
 void task_1(int*, int*);
 void task_2(int , int* );
@@ -13,6 +13,7 @@ void task_2(int , int* );
 int main()
 {
 	setlocale(LC_ALL, "RU");
+	SetConsoleCP(1251);
 	int task = 0;
 	cout << "Введите номер задания: "<< endl;
 		cin >> task;
@@ -165,13 +166,70 @@ int main()
 	  }
 	  case 5:
 	  {/*
-	   Создайте структуру для хранения данных об клиенте банка (Имя, Фамилия, дата рождения (число, месяц, год), номер счета, паспортные данные (серия, номер, кем выдан, дата выдачи (число, месяц, год) ). Программа должна запрашивать ввод данных с клавиатуры, вывести на экран информацию в формате: 
-<фамилия> <имя> <отчество>
-Дата рождения: <день месяц год>
-Номер счета:
-Паспорт: серия <серия паспорта> номер <номер паспорта> выдан <кем выдан> дата выдачи <день месяц число>
+	   Создайте структуру для хранения данных об клиенте банка 
+	   (Имя, Фамилия, дата рождения (число, месяц, год), номер счета, 
+	   паспортные данные (серия, номер, кем выдан, дата выдачи (число, месяц, год) ). 
+	   Программа должна запрашивать ввод данных с клавиатуры, вывести на экран информацию в формате: 
+       <фамилия> <имя> <отчество> Дата рождения: <день месяц год> 
+	   Номер счета: Паспорт: серия <серия паспорта> номер <номер паспорта> выдан <кем выдан> дата выдачи <день месяц число>
 	   */
+		  struct client
+		  {  
+			  char surname[10];          // Фамилия
+			  char name[10];             // Имя
+			  char otchestvo[10];        // Отчество
+			  double date_of_birth_day ;    // Дата рождения день
+			  int date_of_birth_month;   // Дата рождения месяц
+			  int date_of_birth_year;    // Дата рождения год
+			  int account_number;        // Номер счета
+			  int serial;                // Серия паспорта
+			  int number;                // Номер паспорта
+			  char issued[10];           // Кем выдан
+			  int date_of_issue_day;     //Дата выдачи (число)
+			  int date_of_issue_month;   //Дата выдачи (месяц)
+			  int date_of_issue_year;    //Дата выдачи (год)
 
+
+			  void client_info()
+			  {
+				  cout << surname <<" " << name << " " << otchestvo << " " << "(" << "Дата рождения: " << date_of_birth_day << " " << date_of_birth_month << " " << date_of_birth_year <<")" << endl;
+				  cout << "Номер счета: " << "Паспорт: серия " << serial << " " << "Номер " << number << " " << "Выдан " << issued << " " << "Дата выдачи " << date_of_issue_day << " " << date_of_issue_month << " " << date_of_issue_year << " года " << endl;
+			  }
+		  };
+		  client  client_of_bank;
+		  cout << "Введите Фамилию" << endl;
+		  cin >> client_of_bank.surname;
+		  cout << "Имя" << endl;
+		  cin >> client_of_bank.name;
+		  cout << "Отчество" << endl;
+		  cin >> client_of_bank.otchestvo;
+		  cout << "Введите день рождения" << endl;
+		  cin >> client_of_bank.date_of_birth_day;
+		  cout << "Введите месяц рождения" << endl;
+		  cin >> client_of_bank.date_of_birth_month;
+		  cout << "Введите год рождения" << endl;
+		  cin >> client_of_bank.date_of_birth_year;
+		  cout << "Введите номер счета" << endl;
+		  cin >> client_of_bank.account_number;
+		  cout << "Введите серию паспорта" << endl;
+		  cin >> client_of_bank.serial;
+		  cout << "Введите номер паспорта" << endl;
+		  cin >> client_of_bank.number;
+		  cout << "Введите кем выдан  паспорт" << endl;
+		  cin >> client_of_bank.issued;
+		  cout << "Введите дату выдачи паспорта" << endl;
+		  cin >> client_of_bank.date_of_issue_day;
+		  cout << "Введите месяц выдачи паспорта" << endl;
+		  cin >> client_of_bank.date_of_issue_month;
+		  cout << "Введите год выдачи паспорта" << endl;
+		  cin >> client_of_bank.date_of_issue_year;
+
+
+
+
+
+
+		  client_of_bank.client_info();
 		  break;
 	  }
 
